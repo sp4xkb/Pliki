@@ -1,0 +1,10 @@
+[Unit]
+Description=YSF Gateway Service
+After=syslog.targetnetwork.target
+[Service]
+User=root
+WorkingDirectory=/opt/YSFGateway
+ExecStart=/usr/bin/screen -S YSFGateway -D -m /opt/YSFGateway/YSFGateway
+ExecStop=/usr/bin/screen -S YSFGateway -X quit
+[Install]
+WantedBy=multi-user.target
